@@ -47,7 +47,7 @@ Once that is finish installing, you may need to refresh your terminal session:
 ```bash
   $ source ~/.bash_profile
   or
-$ source ~/.zshrc
+  $ source ~/.zshrc
 ```
 
 To view all the available version of node you use the command:

@@ -21,11 +21,11 @@ Browsers are applications. They need to interpret that javascript one way or ano
 
 ### Waiter! Can we get more drinks?
 
-Let's start with a little story example. Imagine we have two waiters named Ruby and Node. Ruby goes to a table of ten and takes the order of one and only person from that table. It then goes and drops the order ticket off at the kitchen. There's only one problem. Ruby likes to talk it up with the chef while he cooks, so ruby waits, and waits, and waits until the food is ready, then returns the plate to the customer. Rinse and repeat for each customer.
+Let's start with a little story example. Imagine we have two waiters named Ruby and Node. Ruby goes to a table of ten and takes the order of one and only one person from that table. It then goes and drops the order ticket off at the kitchen. There's only one problem. Ruby likes to talk it up with the chef while he cooks, so ruby waits, and waits, and waits until the food is ready, then returns the plate to the customer. Rinse and repeat for each customer.
 
-Node, on the other hand is a fantastic waiter. Node takes the order of one customer, goes to the kitchen to drop off the ticket, then heads right back to the table to take the next customers order. Node knows that it is going to take time to cook the food so it can get other things done in the interim. When one of the orders are done, the kitchen rings the bell to let Node know that it can come back and bring the order back to the customer.
+Node, on the other hand is a fantastic waiter. Node takes the order of one customer, goes to the kitchen to drop off the ticket, then heads right back to the table to take the next customers order. Node knows that it is going to take time to cook the food so it can get other things done in the interim. When one of the orders is done, the kitchen rings the bell to let Node know that it can come back and bring the order back to the customer.
 
-What was just described was the difference between a blocking-synchronous model (Ruby) & a non-blocking asynchronous model (Node). How does Node do this? Using an event loop that is written in C++. This can get very low-level real quick so here is the basic gist. The event loop keeps track of any currently executing I/O requests. When one the I/O requests are finished, the event loop fires off an event that triggers node to react to that event with some code commonly called a callback. We'll get back to callbacks later.
+What was just described was the difference between a blocking-synchronous model (Ruby) & a non-blocking asynchronous model (Node). How does Node do this? Using an event loop that is written in C++. This can get very low-level real quick so here is the basic gist. The event loop keeps track of any currently executing I/O requests. When one of the I/O requests are finished, the event loop fires off an event that triggers node to react to that event with some code commonly called a callback. We'll get back to callbacks later.
 
 ## Let's (kind of) Get Started
 
@@ -76,7 +76,7 @@ That's cool and all, but not being able to save anything is mad wack. Let's crea
 
 ### Hello Turing?
 
-In the directory of your choice go ahead and touch the file ```hello_turing.js``` (or don't. I really don't care).
+In the directory of your choice go ahead and ```touch``` the file ```hello_turing.js``` (or don't. I really don't care).
 
 Inside ```hello_turing.js``` insert this code:
 
@@ -133,7 +133,7 @@ Now that we have access to our file system, let's write some code to read a file
 
 There is some odd looking things here, let's breakdown the more glaring things.
 
-```utf8```: If you do not pass in an encoding for the file that is being read, then node will pass in a buffer object. What the hell is a buffer object you say? Buffer objects are designed to handle raw binary data. Node at one point did return just straight up strings, but that proved to be very slow when it came dealing with binary data such as TCP streams and reading and writing to the filesystem. So, by default node now return a buffer object.
+```utf8```: If you do not pass in an encoding for the file that is being read, then node will pass in a buffer object. What the hell is a buffer object you say? Buffer objects are designed to handle raw binary data. Node at one point did return just straight up strings, but that proved to be very slow when it came to dealing with binary data such as TCP streams and reading and writing to the filesystem. So, by default node now return a buffer object.
 
 ```js
   (err, data) => {}
@@ -163,7 +163,7 @@ Go ahead and create a ```hello.txt``` file with the contents of 'Hello Turing!' 
 Let's add this line of code right after our file reading code:
 
 ```js
-  console.log("Hold up, don't wait a minute?");
+  console.log("Hold up, wait a minute?");
 ```
 
 What ```console.log();``` gets run first? Why? If your answer is because node is
@@ -212,7 +212,7 @@ project, you house all the dependencies that are needed in here.
 2. There is also a ```node_modules``` folder that has been added. This is where
 all the files are housed for our dependencies.
 
-I'm going to go ahead and give your all the code straight away and let's just openly
+I'm going to go ahead and give you all the code straight away and let's just openly
 talk about what is going on (because this README is getting to damn long!)
 
 ```js
